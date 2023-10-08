@@ -1,0 +1,75 @@
+import java.util.ArrayList;
+
+public class ShoppingList_9_6 {
+    ArrayList<Item> shoppingList = new ArrayList<>();
+
+    public ShoppingList_9_6(ArrayList<Item> shoppingList) {
+        this.shoppingList = shoppingList;
+    }
+    public ShoppingList_9_6(){
+
+    }
+
+
+
+    public void addItem(String name, int ct) {
+        Item item = new Item(name, ct);
+        shoppingList.add(item);
+    }
+
+    public void showList() {
+        for (Item item : shoppingList){
+            System.out.printf("\nItem:%s Ct:%s", item.getName(), item.getCt());
+
+        }
+    }
+
+    public boolean removeItem(String inItem) {
+        boolean gotIt = false;
+        int ct = 0;
+        for(Item item : shoppingList){
+            if (item.getName().equals(inItem)){
+                shoppingList.remove(ct);
+                gotIt = true;
+                break;
+            }
+        }
+        return gotIt;
+    }
+
+    private class Item {
+        private String name;
+        private int ct;
+
+        public String getName() {
+            return name;
+        }
+
+        public Item(String name, int ct) {
+            this.name = name;
+            this.ct = ct;
+
+
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getCt() {
+            return ct;
+        }
+
+        public void setCt(int ct) {
+            this.ct = ct;
+        }
+
+        @Override
+        public String toString() {
+            return "Item".toString();
+        }
+
+    }
+//    ArrayList<String> shoppingListItems = new ArrayList<>();
+//    ArrayList<Integer> shoppingListItemsCt = new ArrayList<>();
+}
